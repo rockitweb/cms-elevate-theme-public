@@ -1,13 +1,13 @@
 {
-  "name": "@hubspot/elevate",
+  "name": "NIBA THeme",
   "version": "1.0.0",
-  "description": "HubSpot's default CMS theme: Elevate",
+  "description": "Niba Theme, based off Hubspot, Elevate",
   "scripts": {
     "build": "vite build",
     "upload": "hs project upload",
     "build-upload": "vite build && hs project upload",
     "yarn-start": "cd src/unified-theme && yarn start",
-    "npm-start": "cd src/unified-theme && npm run start",
+    "start": "cd src/unified-theme && npm run start",
     "test": "vitest",
     "test-verbose": "vitest --reporter verbose",
     "npm-install:all": "npm install && npm install --prefix src/unified-theme",
