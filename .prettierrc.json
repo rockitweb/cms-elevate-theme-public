@@ -1,0 +1,12 @@
+
+{
+  "plugins": ["@hubspot/prettier-plugin-hubl"],
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "hubl"
+      }
+    }
+  ]
+}
