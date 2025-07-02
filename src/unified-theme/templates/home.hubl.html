@@ -15,8 +15,28 @@
     {# Hero banner #}
 
     {% include_dnd_partial
-      path="../sections/hero-banner-centered-dark.hubl.html",
-      
+      path="../sections/hero-banner-left.hubl.html",
+      context={
+        "background_color": light_section_2_background_color,
+        "heading": {
+          "text": scaffold_content.group_banner.heading
+        },
+        "content": scaffold_content.group_banner.description,
+        "buttons": [
+          {
+            "text": scaffold_content.group_banner.button_text,
+            "href": ""
+          },
+          {
+            "text": scaffold_content.group_banner.button_two_text,
+            "href": ""
+          }
+        ],
+        "image": {
+          "alt": scaffold_content.group_banner.image.alt,
+          "src": scaffold_content.group_banner.image.src
+        }
+      }
     %}
 
 
