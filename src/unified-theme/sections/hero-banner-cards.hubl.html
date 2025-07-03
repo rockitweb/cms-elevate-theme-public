@@ -1,0 +1,61 @@
+<!--
+  templateType: section
+  label: Hero banner - centered dark
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [HERO]
+  scaffoldSchemaPath: ./schemas/hero-banner-centered.scaffold_schema.json
+  screenshotPath: ../images/section-previews/hero-banner-centered-dark.png
+  description: "Section with a centered heading, description, and button"
+-->
+
+{# Note: Schema is shared with hero-banner-centered.hubl.html #}
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - background_image: The background image of the section.
+    - heading.heading_level: The heading level for the section heading.
+    - heading.text: The text for the section heading.
+    - content: The description content for the section.
+    - button.text: The text for the call-to-action button.
+    - button.href: The URL for the call-to-action button.
+    - button.size: The size of the button.
+    - button.style: The style variant of the button.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_4" %}
+
+{# Section #}
+
+
+{% dnd_section
+margin={
+
+    "top": -100,
+    "bottom": 0
+  },
+
+  padding={
+    "top": 0,
+    "bottom": 0
+  },
+   full_width=false,
+     max_width="1200",
+%}
+    
+  {% dnd_column  %}}
+     {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/HeroCards",
+      
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+
+
+{% end_dnd_section %}

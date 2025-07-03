@@ -2,7 +2,10 @@
   "name": "NIBA THeme",
   "version": "1.0.0",
   "description": "Niba Theme, based off Hubspot, Elevate",
+  "type": "module",
   "scripts": {
+    "dev": "concurrently \"npm run watch\" \"npm run start\"",
+    "watch": "vite build --watch",
     "build": "vite build",
     "upload": "hs project upload",
     "build-upload": "vite build && hs project upload",
@@ -34,7 +37,9 @@
     "defaults"
   ],
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
     "@tailwindcss/vite": "^4.1.11",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.11",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
