@@ -44,20 +44,7 @@
     {% end_dnd_row %}
     {% dnd_row %}
       {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module
-            path="../components/modules/RichText",
-            groupStyle={
-              "sectionStyleVariant": section_variant
-            }
-          %}
-            {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ context.label or scaffold_content.subheading or template_translations.section_heading_with_three_cards_label.message }}</p>
-              </div>
-            {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
+      
         {% dnd_row %}
           {% dnd_module
             path="../components/modules/Heading",
@@ -71,6 +58,20 @@
               "sectionStyleVariant": section_variant
             }
           %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+          {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": section_variant
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ context.label or scaffold_content.subheading or template_translations.section_heading_with_three_cards_label.message }}</p>
+              </div>
+            {% end_module_attribute %}
           {% end_dnd_module %}
         {% end_dnd_row %}
         {% dnd_row %}
