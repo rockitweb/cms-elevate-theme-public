@@ -19,7 +19,7 @@ type HeroCardsProps = {
 };
 
 export function Component({ fieldValues }: HeroCardsProps) {
-  console.log("Hero Cards fieldValues", fieldValues);
+  //console.log("Hero Cards fieldValues", fieldValues);
   const { cards } = fieldValues;
   return (
     <div className="flex w-full justify-center items-center -mt-[100px]">

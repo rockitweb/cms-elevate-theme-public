@@ -41,9 +41,9 @@ export const Component = (props: HeadingProps) => {
     headingAndTextHeading,
     groupStyle: { alignment, headingStyleVariant, sectionStyleVariant },
   } = props;
-  console.log("Heading props:", props);
+  //console.log("Heading props:", props);
   const cssVarsMap = {
-    ...generateColorCssVars(sectionStyleVariant),
+    ...generateColorCssVars(sectionStyleVariant || "section_variant_4"),
   };
 
   return (

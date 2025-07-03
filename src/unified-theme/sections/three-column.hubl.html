@@ -1,6 +1,6 @@
 <!--
   templateType: section
-  label: Hero banner - cards
+  label: Three Column Section
   isAvailableForNewContent: true
   landingPageSectionCategories: [HERO]
   scaffoldSchemaPath: ./schemas/hero-banner-centered.scaffold_schema.json
@@ -33,29 +33,36 @@
 
 
 {% dnd_section
-margin={
-
-    "top": -100,
+padding={
+    "top": section_vertical_spacing_small,
     "bottom": 0
   },
-
-  padding={
-    "top": 0,
-    "bottom": 0
-  },
+  max_width={{ section_width_medium }}
    full_width=false,
-     max_width="1200",
+
 %}
     
   {% dnd_column  %}}
      {% dnd_row %}
-      {% dnd_module
-        path="../components/modules/HeroCards",
+        {% dnd_module width=4,
+        path="../components/modules/CountUp",
+      
+      %}
+      {% end_dnd_module %}
+
+       {% dnd_module width=4, offset=4,
+        path="../components/modules/CountUp",
+      
+      %}
+       {% end_dnd_module %}
+       {% dnd_module width=4, offset=8,
+        path="../components/modules/CountUp",
       
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}
   {% end_dnd_column %}
+
 
 
 {% end_dnd_section %}

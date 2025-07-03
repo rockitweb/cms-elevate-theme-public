@@ -42,6 +42,34 @@
       path="../sections/hero-banner-cards.hubl.html",
     
     %}
+   {% include_dnd_partial
+      path="../sections/three-column.hubl.html",
+    
+    %}
+
+      {% include_dnd_partial
+      path="../sections/two-column-image-card.hubl.html",
+    
+    %}
+
+ {% include_dnd_partial
+      path="../sections/latest-news-media.hubl.html",
+    
+    %}
+
+  {% include_dnd_partial
+      path="../sections/heading-with-module.hubl.html",
+    context={
+        "background_color": light_section_2_background_color,
+        "section_variant": "section_variant_2",
+        "card_variant": "card_variant_4",
+        "heading": {
+          "text": scaffold_content.group_heading_and_cards.heading
+        }
+        }
+    %}
+
+
 
     {# Heading with three cards #}
 
