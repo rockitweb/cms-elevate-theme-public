@@ -75,13 +75,14 @@ h6,
 .hs-elevate-display-2 {
   line-height: var(--hsElevate--heading__lineHeight);
   margin-block: var(--hsElevate--text__margin);
+  font-weight: 600;
 }
 
 .hs-elevate-display-1 {
   font-family: var(--hsElevate--display1__font);
   font-size: calc(var(--hsElevate--display1__fontSize) * var(--hsElevate--heading__tablet-modifier));
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .hs-elevate-display-2 {
