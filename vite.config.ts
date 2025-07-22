@@ -12,6 +12,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [HublPostCSSCleaner(), tsconfigPaths()],
   publicDir: "./dist/",
+  base: "/",
   build: {
     outDir: "./src/unified-theme/assets/dist",
     minify: false,
@@ -35,17 +36,10 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
           const ext = assetInfo?.name?.split(".").pop();
-          if (ext) {
-            if (["woff", "woff2", "ttf", "otf", "eot"].includes(ext)) {
-              return "fonts/[name].[ext]";
-            }
-            if (["css"].includes(ext)) {
-              return "css/[name].[ext]";
-            }
-            return "assets/[name].[ext]";
-          } else {
-            return "assets/[name].[ext]";
-          }
+          if (!ext) return "assets/[name].[ext]";
+          if (["woff2", "woff"].includes(ext)) return "fonts/[name].[ext]";
+          if (ext === "css") return "css/[name].[ext]";
+          return "assets/[name].[ext]";
         },
       },
     },
