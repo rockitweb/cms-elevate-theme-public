@@ -22,10 +22,15 @@ export function Component({ fieldValues }: HeroCardsProps) {
   //console.log("Hero Cards fieldValues", fieldValues);
   const { cards } = fieldValues;
   return (
-    <div className="flex w-full justify-center items-center -mt-[100px]">
-      <div className=" bg-gradient-to-r p-5 flex gap-2  rounded-3xl from-niba-blue-gradient to-niba-blue-gradient-light">
-        {cards.map((card) => (
-          <IconCard key={card.heading} {...card} />
+    <div className="flex w-full justify-center items-center -mt-[50px]">
+      <div className=" bg-gradient-to-r p-5 flex gap-2  rounded-xl from-niba-blue-gradient to-niba-blue-gradient-light">
+        {cards.map((card, i) => (
+          <IconCard
+            key={card.heading}
+            {...card}
+            rightBorder={i < cards.length - 1}
+            
+          />
         ))}
       </div>
     </div>

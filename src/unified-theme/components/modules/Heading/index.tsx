@@ -60,6 +60,7 @@ export const Component = (props: HeadingProps) => {
         heading={headingAndTextHeading}
         alignment={alignment}
         headingStyleVariant={headingStyleVariant}
+        inlineStyles={{ fontWeight: "bold" }}
       />
     </div>
   );

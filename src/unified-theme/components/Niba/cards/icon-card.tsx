@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import SanitizedContent from "../../../components/SanitizeHTML/index.js";
 import {
   Card,
@@ -6,16 +7,34 @@ import {
   CardTitle,
 } from "../../../components/ui/card.js";
 
-type IconCardProps = { icon: string; heading: string; message: string };
+type IconCardProps = {
+  icon: string;
+  heading: string;
+  message: string;
+  rightBorder: boolean;
+};
 
-export function IconCard({ icon, heading, message }: IconCardProps) {
+export function IconCard({
+  icon,
+  heading,
+  message,
+  rightBorder,
+}: IconCardProps) {
+  const borderCss = clsx(
+    "border-r-white border-0",
+    rightBorder && "border-r-2",
+  );
   return (
-    <Card className="bg-transparent border-0 text-white text-center shadow-none rounded-lg flex flex-col items-center justify-center">
-      <div className="w-[150px] "><SanitizedContent content={icon} /></div>
-      <CardHeader className="w-full">
-        <CardTitle className="text-4xl">{heading}</CardTitle>
+    <Card
+      className={`gap-2 bg-transparent text-white py-0 text-center p-5 shadow-none rounded-none flex flex-col items-center justify-center ${borderCss}`}
+    >
+      <CardHeader className="w-full flex flex-col items-center justify-center">
+        <div className="w-[80px] ">
+          <SanitizedContent content={icon} />
+        </div>
+        <CardTitle className="text-[20px]">{heading}</CardTitle>
       </CardHeader>
-      <CardContent className="text-lg">{message}</CardContent>
+      <CardContent className="text-[15px]">{message}</CardContent>
     </Card>
   );
 }

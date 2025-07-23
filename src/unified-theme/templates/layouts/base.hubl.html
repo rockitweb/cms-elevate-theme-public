@@ -18,6 +18,16 @@
       <link rel="shortcut icon" href="{{ brand_settings.favicon.src|escape_url }}" />
     {% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}" />
+ 
+    {# This is intended to be used if a template requires template specific style sheets #}
+    {% if template_css %}
+      <link rel="stylesheet" href="{{ get_asset_url(template_css) }}" />
+    {% endif %}
+    {# This is intended to be used if a template requires template specific JavaScript files #}
+    {% if template_js %}
+      <script src="{{ get_asset_url(template_js) }}" defer></script>
+    {% endif %}
+    {# Load the main CSS file for the theme #}
  {{ require_css(get_asset_url("../../assets/dist/css/main.hubl.css")) }}
     {% js_partial
       path="@projects/NIBA Theme/unified-theme/components/partials/GlobalCSS/index.tsx",

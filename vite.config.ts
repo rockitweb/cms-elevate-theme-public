@@ -12,7 +12,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [HublPostCSSCleaner(), tsconfigPaths()],
   publicDir: "./dist/",
-  base: "/",
+  base: "",
   build: {
     outDir: "./src/unified-theme/assets/dist",
     minify: false,
