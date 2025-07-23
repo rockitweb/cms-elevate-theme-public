@@ -50,6 +50,7 @@ query BlogsQuery($limit: Int! = 3) {
         post_summary
         featured_image
         featured_image_alt_text
+        publish_date
       }
     }
   }

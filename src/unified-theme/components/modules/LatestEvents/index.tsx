@@ -36,6 +36,7 @@ export const query = `query BlogsQuery {
         post_summary
         featured_image
         featured_image_alt_text
+        publish_date
       }
     }
   }

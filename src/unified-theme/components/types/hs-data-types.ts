@@ -15,4 +15,5 @@ export type HSBlog = {
   post_summary: string;
   featured_image: string;
   featured_image_alt_text: string;
+  publish_date: number;
 };

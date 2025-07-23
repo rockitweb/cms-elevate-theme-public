@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react';
-import { Card } from '../../ui/card.js';
+import { PropsWithChildren } from "react";
+import { Card } from "../../ui/card.js";
 
 export type ImageTopCardProps = {
   image: string;
@@ -16,7 +16,7 @@ export function ImageTopCard({ image, imageAlt, children }: ImageTopCardProps) {
           className="object-cover w-full h-full"
         />
       </div>
-      {children}
+      <div className=" flex flex-col justify-evenly flex-grow"> {children}</div>
     </Card>
   );
 }
