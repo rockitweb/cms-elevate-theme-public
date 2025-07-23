@@ -82,7 +82,7 @@ h6,
   font-family: var(--hsElevate--display1__font);
   font-size: calc(var(--hsElevate--display1__fontSize) * var(--hsElevate--heading__tablet-modifier));
   font-style: normal;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .hs-elevate-display-2 {
