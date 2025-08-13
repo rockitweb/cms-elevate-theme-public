@@ -1,23 +1,25 @@
-import {
-  AlignmentFieldType,
-  TextFieldType,
-} from '@hubspot/cms-components/fields';
 import { ModuleMeta } from '../../types/modules.js';
-import buttonIconSvg from './assets/button.svg';
-import { ButtonContentType } from './ButtonContent/types.js';
-import { ButtonStyleFieldLibraryType } from './ButtonStyle/types.js';
+import { AlignmentFieldType, TextFieldType } from '@hubspot/cms-components/fields';
 import { StandardSizeType } from '../../types/fields.js';
-import { Button } from '../../ui/button.js';
-import {
-  getLinkFieldHref,
-  getLinkFieldTarget,
-} from '../../utils/content-fields.js';
+import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
+import { getAlignmentFieldCss } from '../../utils/style-fields.js';
+import styles from './button.module.css';
+import { Button } from '../../ButtonComponent/index.js';
+import buttonIconSvg from './assets/button.svg';
+import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
+import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
+import cx from '../../utils/classnames.js';
 
-type ButtonProps = {
-  groupButtons: ButtonContentType[];
-  buttonAlignment: AlignmentFieldType['default'];
-  groupAriaLabels: GroupAriaLabels;
-};
+// Types
+enum LinkType {
+  EXTERNAL = 'EXTERNAL',
+  CONTENT = 'CONTENT',
+  FILE = 'FILE',
+  EMAIL_ADDRESS = 'EMAIL_ADDRESS',
+  CALL_TO_ACTION = 'CALL_TO_ACTION',
+  BLOG = 'BLOG',
+  PAYMENT = 'PAYMENT',
+}
 
 type GroupAriaLabels = {
   ariaLabel_external: TextFieldType['default'];
@@ -29,63 +31,102 @@ type GroupAriaLabels = {
   ariaLabel_default: TextFieldType['default'];
 };
 
-export function Component(props: ButtonProps) {
-  const { groupButtons, buttonAlignment } = props;
-  //console.log('Button component loaded', props);
+type GroupStyle = ButtonStyleFieldLibraryType & {
+  gap: StandardSizeType;
+  alignment: AlignmentFieldType['default'];
+};
 
-  //we will quickly map the  props.groupStyle.alignment.horizontal_align to tailwind classes for flex layout
+// Button component
+type ButtonProps = {
+  groupButtons: ButtonContentType[];
+  groupStyle: GroupStyle;
+  groupAriaLabels: GroupAriaLabels;
+};
 
-  //this is a simple example, you can expand it to include more complex styles
+// Function to set the aria label based on the link type
 
-  const horizontalAlign = {
-    LEFT: 'justify-start',
-    CENTER: 'justify-center',
-    RIGHT: 'justify-end',
+function setAriaLabel(groupAriaLabels: GroupAriaLabels, linkType?: string) {
+  switch (linkType) {
+    case LinkType.EXTERNAL:
+      return groupAriaLabels.ariaLabel_external;
+    case LinkType.CONTENT:
+      return groupAriaLabels.ariaLabel_content;
+    case LinkType.FILE:
+      return groupAriaLabels.ariaLabel_file;
+    case LinkType.EMAIL_ADDRESS:
+      return groupAriaLabels.ariaLabel_email;
+    case LinkType.BLOG:
+      return groupAriaLabels.ariaLabel_blog;
+    case LinkType.PAYMENT:
+      return groupAriaLabels.ariaLabel_payment;
+    default:
+      return groupAriaLabels.ariaLabel_default;
+  }
+}
+
+// Functions to pull in corresponding CSS variables on component based on field values
+
+type CSSPropertiesMap = { [key: string]: string };
+
+function generateGapCssVars(gapField: StandardSizeType): CSSPropertiesMap {
+  const gapMap = {
+    small: 'var(--hsElevate--spacing--8, 8px)',
+    medium: 'var(--hsElevate--spacing--16, 16px)',
+    large: 'var(--hsElevate--spacing--24, 24px)',
   };
-  const horizontalAlignClass =
-    horizontalAlign[buttonAlignment.horizontal_align] || 'justify-center';
-  const verticalAlign = {
-    TOP: 'items-start',
-    MIDDLE: 'items-center',
-    BOTTOM: 'items-end',
+
+  return { '--hsElevate--buttons__gap': gapMap[gapField] };
+}
+
+function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default']): CSSPropertiesMap {
+  const alignment = getAlignmentFieldCss(alignmentField);
+  return {
+    '--hsElevate--buttons__alignment': alignment.justifyContent || 'flex-start',
   };
-  const verticalAlignClass =
-    verticalAlign[buttonAlignment.vertical_align] || 'items-center';
+}
+
+export const Component = (props: ButtonProps) => {
+  const {
+    groupButtons,
+    groupStyle: { alignment, buttonStyleVariant, buttonStyleSize, gap },
+    groupAriaLabels,
+  } = props;
+
+  const cssVarsMap = {
+    ...generateGapCssVars(gap),
+    ...generateAlignmentCssVars(alignment),
+  };
+
   return (
-    <div className={`flex gap-3 ${horizontalAlignClass} ${verticalAlignClass}`}>
-      {groupButtons.map((button, index) => {
-        //console.log('Rendering button', button);
-
-        return (
+    <div className={cx('hs-elevate-button-wrapper', styles['hs-elevate-button-wrapper'])} style={cssVarsMap}>
+      <div className={cx('hs-elevate-button-container', styles['hs-elevate-button-container'])}>
+        {groupButtons.map((button, index) => (
           <Button
             key={index}
-            asChild={true}
-            variant={button.buttonStyleVariant}
+            buttonStyle={buttonStyleVariant}
+            buttonSize={buttonStyleSize}
+            href={getLinkFieldHref(button.buttonContentLink)}
+            rel={getLinkFieldRel(button.buttonContentLink)}
+            ariaLabel={setAriaLabel(groupAriaLabels, button.buttonContentLink.url?.type)}
+            target={getLinkFieldTarget(button.buttonContentLink)}
+            showIcon={button.buttonContentShowIcon}
+            iconFieldPath={`groupButtons[${index}].buttonContentIcon`}
+            iconPosition={button.buttonContentIconPosition}
+            additionalClassArray={['hs-elevate-button-container__button']}
           >
-            <a
-              href={getLinkFieldHref(button.buttonContentLink)}
-              target={getLinkFieldTarget(button.buttonContentLink)}
-            >
-              {button.buttonContentText}
-            </a>
+            {button.buttonContentText}
           </Button>
-        );
-      })}
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export { fields } from './fields.js';
 
 export const meta: ModuleMeta = {
   label: 'Button',
-  content_types: [
-    'BLOG_LISTING',
-    'BLOG_POST',
-    'SITE_PAGE',
-    'LANDING_PAGE',
-    'CASE_STUDY',
-  ],
+  content_types: ['BLOG_LISTING', 'BLOG_POST', 'SITE_PAGE', 'LANDING_PAGE', 'CASE_STUDY'],
   icon: buttonIconSvg,
   categories: ['forms_and_buttons'],
 };
