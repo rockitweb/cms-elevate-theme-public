@@ -1,6 +1,6 @@
 // import { dummyTranslations } from '../../LanguageSwitcherComponent/dummyData.js';
 
-//import "../../../styles/localdev.module.css";
+import "../../../styles/localdev.module.css";
 import { ModuleMeta } from "../../types/modules.js";
 
 import SiteHeaderSVG from "./assets/Header.svg";
@@ -10,7 +10,7 @@ import { MenuModulePropTypes } from "./types.js";
 
 // @ts-expect-error -- ?island not typed
 import MainMenu from "../../Navigation/mainMenu.js?island";
-//import { Button } from "../../../components/ui/button.js";
+import { Button } from "../../../components/ui/button.js";
 //import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
 
 ///import LanguageSwitcherIsland from '../../LanguageSwitcherComponent/index.js?island';
@@ -54,13 +54,13 @@ export const Component = (props: MenuModulePropTypes) => {
       <div className="flex justify-between items-center">
         <img src={logoToUse.src} alt={logoToUse.alt} className="h-[55px]" />
         <Island module={MainMenu} navItems={navDataArray} clientOnly={true} />
-     {/*    {showButton && (
+        {showButton && (
           <Button asChild>
             <a href={buttonLink.url.href} aria-label={logoLinkAriaText}>
               {buttonText}
             </a>
           </Button>
-        )} */}
+        )}
       </div>
     </div>
   );
