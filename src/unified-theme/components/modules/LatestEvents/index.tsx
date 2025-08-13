@@ -1,9 +1,9 @@
-import { ModuleFields } from '@hubspot/cms-components/fields';
+import { ModuleFields } from "@hubspot/cms-components/fields";
 
-import { HSBlog, HSBlogsQueryResult } from '../../types/hs-data-types.js';
+import { HSBlog, HSBlogsQueryResult } from "../../types/hs-data-types.js";
 
-import '../../../assets/_hs/css/tailwind.hubl.css';
-import { BlogList } from '../../Niba/blog-list.js';
+import "../../../assets/_hs/css/tailwind.hubl.css";
+import { BlogList } from "../../BlogList/blog-list.js";
 export type LatestBlogsProps = {
   dataQueryResult: {
     data: HSBlogsQueryResult;
@@ -15,15 +15,13 @@ export type LatestBlogsProps = {
 export function Component(props: LatestBlogsProps) {
   const blogs = props.dataQueryResult.data?.BLOG?.post_collection?.items || [];
 
-
-
   return <BlogList blogs={blogs as HSBlog[]} />;
 }
 
 export const meta = {
-  label: 'Latest Events',
+  label: "Latest Events",
 };
-export const fields = <ModuleFields children={''}></ModuleFields>;
+export const fields = <ModuleFields children={""}></ModuleFields>;
 export const query = `query BlogsQuery {
   BLOG {
     post_collection(limit: 3, orderBy: publish_date__desc  filter: {post_tag_slug__eq: "event"}) {

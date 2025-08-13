@@ -1,8 +1,14 @@
-import { BlogList } from "../Niba/blog-list.js";
+import { BlogList } from "../BlogList/blog-list.js";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs.js";
 import { HSBlog } from "../types/hs-data-types.js";
 
-export function LatestNewsAndMediaTabs({ blogs }: { blogs: HSBlog[] }) {
+export function LatestNewsAndMediaTabs({
+  news,
+  media,
+}: {
+  news: HSBlog[];
+  media: HSBlog[];
+}) {
   return (
     <Tabs defaultValue="news" className=" w-full">
       <TabsList className="w-full justify-between p-0 h-[60px] rounded-none">
@@ -21,10 +27,14 @@ export function LatestNewsAndMediaTabs({ blogs }: { blogs: HSBlog[] }) {
       </TabsList>
       <TabsContent value="news">
         <div className=" flex justify-center w-full p-0">
-          <BlogList blogs={blogs} />
+          <BlogList blogs={news} />
         </div>
       </TabsContent>
-      <TabsContent value="media">Change your media here.</TabsContent>
+      <TabsContent value="media">
+        <div className=" flex justify-center w-full p-0">
+          <BlogList blogs={media} />
+        </div>
+      </TabsContent>
     </Tabs>
   );
 }
