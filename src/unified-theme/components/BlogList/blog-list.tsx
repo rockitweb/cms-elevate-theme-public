@@ -3,6 +3,7 @@ import { BlogCard } from "../Cards/blog-card.js";
 
 export type BlogListProps = {
   blogs: HSBlog[];
+  
 };
 export function BlogList({ blogs }: BlogListProps) {
   return (
