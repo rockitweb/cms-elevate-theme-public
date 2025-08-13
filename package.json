@@ -8,7 +8,7 @@
     "watch": "vite build --watch",
     "build": "vite build",
     "upload": "hs project upload",
-    "build-upload": "vite build && hs project upload",
+    "build-upload": "vite build && hs project upload --account niba",
     "yarn-start": "cd src/unified-theme && yarn start",
     "start": "cd src/unified-theme && npm run start",
     "test": "vitest",

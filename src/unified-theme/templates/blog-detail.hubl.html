@@ -6,7 +6,8 @@
 -->
 {% set template_css = "../../assets/dist/css/blog.hubl.css" %}
 {% extends "./layouts/base.hubl.html" %}
-
+{% text "externalLink" label="External Link.", export_to_template_context=True %}
+{% module "external_link" label="External Link" path="@hubspot/text" %}
 {% block body %}
 
 <div class="hs-elevate-content-wrapper">

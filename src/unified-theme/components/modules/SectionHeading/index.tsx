@@ -17,7 +17,7 @@ export function Component({ fieldValues }: SectionHeadingProps) {
   console.log("Section Heading fieldValues", fieldValues);
   return (
     <div className="flex flex-col items-center  text-center gap-2 font-display">
-      <h2 className="text-[24px]/[24px]! m-0! text-niba-blue font-bold! line">
+      <h2 className="text-[24px]/[24px]! m-0! text-niba-blue font-semibold! line">
         <SanitizedContent content={fieldValues.title} />
       </h2>
       <p className="text-[20px]! font-light!">

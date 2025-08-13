@@ -1,0 +1,20 @@
+<!--
+  templateType: section
+  label: Hero banner - centered dark
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [HERO]
+  scaffoldSchemaPath: ./schemas/hero-banner-centered.scaffold_schema.json
+  screenshotPath: ../images/section-previews/hero-banner-centered-dark.png
+  description: "Section with a centered heading, description, and button"
+-->
+
+{# Section variables #} {% set template_translations =
+load_translations("../templates/_locales", html_lang, "en") %} {# Section #} {%
+dnd_section %} {% dnd_column %} {% dnd_row %} {% dnd_module width=12,
+path="../components/modules/home-hero", %} {% end_dnd_module %} 
+
+
+
+{% end_dnd_row
+%} {% end_dnd_column %} {% end_dnd_section %}
+
