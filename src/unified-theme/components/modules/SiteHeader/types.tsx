@@ -1,8 +1,14 @@
-import { TextFieldType, AlignmentFieldType, ColorFieldType, LogoFieldType, BooleanFieldType } from '@hubspot/cms-components/fields';
-import { SizeOption, maxMenuDepth } from '../../MenuComponent/types.js';
-import { MenuComponentProps } from '../../MenuComponent/types.js';
-import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
-import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
+import {
+  TextFieldType,
+  AlignmentFieldType,
+  ColorFieldType,
+  LogoFieldType,
+  BooleanFieldType,
+} from "@hubspot/cms-components/fields";
+import { SizeOption, maxMenuDepth } from "../../MenuComponent/types.js";
+import { MenuComponentProps } from "../../MenuComponent/types.js";
+import { ButtonContentType } from "../../fieldLibrary/ButtonContent/types.js";
+import { ButtonStyleFieldLibraryType } from "../../fieldLibrary/ButtonStyle/types.js";
 
 export type MenuDataType = {
   label: string;
@@ -12,11 +18,11 @@ export type MenuDataType = {
 };
 
 interface GroupButton extends ButtonContentType {
-  showButton: BooleanFieldType['default'];
+  showButton: BooleanFieldType["default"];
 }
 
 type GroupLogo = {
-  logo?: LogoFieldType['default'];
+  logo?: LogoFieldType["default"];
 };
 
 export type MenuModuleContentFields = {
@@ -28,11 +34,11 @@ type GroupMenuStyle = {
   menuColumnGap: SizeOption;
   menuItemPadding: SizeOption;
   menuItemVerticalGap: SizeOption;
-  menuAlignment: AlignmentFieldType['default'];
-  menuTextColor: ColorFieldType['default'];
-  menuTextHoverColor: ColorFieldType['default'];
-  menuAccentColor: ColorFieldType['default'];
-  menuBackgroundColor: ColorFieldType['default'];
+  menuAlignment: AlignmentFieldType["default"];
+  menuTextColor: ColorFieldType["default"];
+  menuTextHoverColor: ColorFieldType["default"];
+  menuAccentColor: ColorFieldType["default"];
+  menuBackgroundColor: ColorFieldType["default"];
 };
 
 type MenuModuleStyles = {
@@ -45,8 +51,9 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
     navigation: {
       children: MenuDataType[];
     };
+  
     companyName: string; // Fallback if no logo is present
-    defaultLogo: LogoFieldType['default']; // Temporary until logoField is fixed
+    defaultLogo: LogoFieldType["default"]; // Temporary until logoField is fixed
     logoLink: string;
     isInEditor: boolean;
   };
@@ -58,7 +65,7 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
     placeholderDescription: string;
   };
   accessibility: {
-    menuName: TextFieldType['default'];
+    menuName: TextFieldType["default"];
   };
   styles: MenuModuleStyles;
 }
@@ -81,7 +88,10 @@ export interface MenuContainerProps {
   $headerMobileLanguageSwitcherHeight: number;
 }
 
-export interface MobileMenuIslandProps extends MenuComponentProps, MenuModuleContentFields, ButtonStyleFieldLibraryType {
+export interface MobileMenuIslandProps
+  extends MenuComponentProps,
+    MenuModuleContentFields,
+    ButtonStyleFieldLibraryType {
   menuBackgroundColor: string;
   menuAccentColor: string;
   menuTextColor: string;

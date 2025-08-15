@@ -32,7 +32,8 @@ export const fields = (
       <LogoField label="Logo" name="logo" showLoading={false} />
     </FieldGroup>
     <FieldGroup label="Navigation" name="groupNavigation" display="inline">
-      <MenuField label="Menu" name="menu" default="default" />
+      <MenuField label="Menu" name="menu" default="Primary Menu" />
+     
     </FieldGroup>
     <FieldGroup label="Button" name="groupButton" display="inline">
       <BooleanField label="Show button" name="showButton" display="toggle" default={true} />
