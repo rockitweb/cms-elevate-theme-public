@@ -12,20 +12,31 @@
     color: var(--hsElevate--richText__textColor);
   }
 
+  ul {
+    list-style-type: disc; /* or disc, circle, none, etc. */
+  }
   a:not(.hs-elevate-button) {
     color: var(--hsElevate--richText__linkColor);
     -webkit-text-decoration: var(--hsElevate--richText__textDecoration);
     text-decoration: var(--hsElevate--richText__textDecoration);
-    -webkit-text-decoration-color: var(--hsElevate--richText__textDecorationColor);
+    -webkit-text-decoration-color: var(
+      --hsElevate--richText__textDecorationColor
+    );
     text-decoration-color: var(--hsElevate--richText__textDecorationColor);
   }
 
   a:not(.hs-elevate-button):hover,
   a:not(.hs-elevate-button):focus {
     color: var(--hsElevate--richText__linkHoverColor);
-    -webkit-text-decoration: var(--hsElevate--richText__linkHoverTextDecoration);
+    -webkit-text-decoration: var(
+      --hsElevate--richText__linkHoverTextDecoration
+    );
     text-decoration: var(--hsElevate--richText__linkHoverTextDecoration);
-    -webkit-text-decoration-color: var(--hsElevate--richText__linkHoverTextDecorationColor);
-    text-decoration-color: var(--hsElevate--richText__linkHoverTextDecorationColor);
+    -webkit-text-decoration-color: var(
+      --hsElevate--richText__linkHoverTextDecorationColor
+    );
+    text-decoration-color: var(
+      --hsElevate--richText__linkHoverTextDecorationColor
+    );
   }
 }
