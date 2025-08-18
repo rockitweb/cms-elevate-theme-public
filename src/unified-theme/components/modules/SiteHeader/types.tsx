@@ -51,7 +51,9 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
     navigation: {
       children: MenuDataType[];
     };
-  
+    megaMenu: {
+      children: MenuDataType[];
+    };
     companyName: string; // Fallback if no logo is present
     defaultLogo: LogoFieldType["default"]; // Temporary until logoField is fixed
     logoLink: string;

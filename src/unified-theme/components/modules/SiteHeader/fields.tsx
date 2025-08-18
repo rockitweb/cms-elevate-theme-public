@@ -9,22 +9,25 @@ import {
   BooleanField,
   AdvancedVisibility,
   IconField,
-} from '@hubspot/cms-components/fields';
-import { ButtonContent, ButtonStyle } from '../../fieldLibrary/index.js';
-import { limitedColorDefaults } from '../../utils/theme-color-sets.js';
+} from "@hubspot/cms-components/fields";
+import { ButtonContent, ButtonStyle } from "../../fieldLibrary/index.js";
+import { limitedColorDefaults } from "../../utils/theme-color-sets.js";
 
 const showButton = {
-  controlling_field_path: 'groupButton.showButton',
-  controlling_value_regex: 'true',
-  operator: 'EQUAL',
+  controlling_field_path: "groupButton.showButton",
+  controlling_value_regex: "true",
+  operator: "EQUAL",
 } as const;
 
 const advancedShowButton: AdvancedVisibility = {
-  boolean_operator: 'OR',
+  boolean_operator: "OR",
   criteria: [showButton],
 } as const;
 
-const limitedOptionsColorsSet = [...limitedColorDefaults.themeSectionTextColors, ...limitedColorDefaults.themeColors];
+const limitedOptionsColorsSet = [
+  ...limitedColorDefaults.themeSectionTextColors,
+  ...limitedColorDefaults.themeColors,
+];
 
 export const fields = (
   <ModuleFields>
@@ -33,10 +36,15 @@ export const fields = (
     </FieldGroup>
     <FieldGroup label="Navigation" name="groupNavigation" display="inline">
       <MenuField label="Menu" name="menu" default="Primary Menu" />
-     
+      <MenuField label="Mega Menu" name="megaMenu" default="Mega Menu" />
     </FieldGroup>
     <FieldGroup label="Button" name="groupButton" display="inline">
-      <BooleanField label="Show button" name="showButton" display="toggle" default={true} />
+      <BooleanField
+        label="Show button"
+        name="showButton"
+        display="toggle"
+        default={true}
+      />
       <ButtonContent
         textDefault="Get started"
         linkDefault={{
@@ -48,9 +56,23 @@ export const fields = (
       />
     </FieldGroup>
     <FieldGroup label="Default content" name="defaultContent" locked={true}>
-      <TextField label="Logo link aria text" name="logoLinkAriaText" default="Homepage" locked={true} />
-      <TextField label="Lang switcher select text" name="languageSwitcherSelectText" default="Select a language" locked={true} />
-      <TextField label="Placeholder title" name="placeholderTitle" default="No menu selected" />
+      <TextField
+        label="Logo link aria text"
+        name="logoLinkAriaText"
+        default="Homepage"
+        locked={true}
+      />
+      <TextField
+        label="Lang switcher select text"
+        name="languageSwitcherSelectText"
+        default="Select a language"
+        locked={true}
+      />
+      <TextField
+        label="Placeholder title"
+        name="placeholderTitle"
+        default="No menu selected"
+      />
       <TextField
         label="Placeholder description"
         name="placeholderDescription"
@@ -62,7 +84,7 @@ export const fields = (
       name="globe_icon"
       iconSet="fontawesome-6.4.2"
       default={{
-        name: 'earth-americas',
+        name: "earth-americas",
       }}
       required={true}
       locked={true}
@@ -79,7 +101,7 @@ export const fields = (
             },
           }}
           limitedOptions={limitedOptionsColorsSet}
-          default={{ color: '#09152B' }}
+          default={{ color: "#09152B" }}
         />
         <ColorField
           label="Text color (hover)"
@@ -91,7 +113,7 @@ export const fields = (
           }}
           limitedOptions={limitedOptionsColorsSet}
           inheritedValuePropertyValuePaths={{
-            color: 'module.styles.groupMenu.menuTextColor.color',
+            color: "module.styles.groupMenu.menuTextColor.color",
           }}
         />
         <ColorField
@@ -104,7 +126,7 @@ export const fields = (
             },
           }}
           limitedOptions={limitedOptionsColorsSet}
-          default={{ color: '#F7F9FC' }}
+          default={{ color: "#F7F9FC" }}
         />
         <ColorField
           label="Background color"
@@ -115,14 +137,14 @@ export const fields = (
             },
           }}
           limitedOptions={limitedColorDefaults.themeSectionBackgroundColors}
-          default={{ color: '#ffffff' }}
+          default={{ color: "#ffffff" }}
         />
         <AlignmentField
           label="Horizontal alignment"
           name="menuAlignment"
           required={true}
           alignmentDirection="HORIZONTAL"
-          default={{ horizontal_align: 'CENTER' }}
+          default={{ horizontal_align: "CENTER" }}
         />
       </FieldGroup>
       <FieldGroup label="Button" name="groupButton" display="inline">

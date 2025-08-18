@@ -2,7 +2,7 @@
 import { ModuleMeta } from "../../types/modules.js";
 
 import SiteHeaderSVG from "./assets/Header.svg";
-
+import "../../../styles/localdev.module.css";
 import {
   Island,
   SharedIslandState,
@@ -18,6 +18,7 @@ import { MenuModulePropTypes, MainNavProps } from "./types.js";
 
 // @ts-expect-error -- ?island not typed
 import MainMenu from "../../Navigation/mainMenu.js?island";
+import { Section } from "../../section/index.js";
 //import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
 
 ///import LanguageSwitcherIsland from '../../LanguageSwitcherComponent/index.js?island';
@@ -26,6 +27,7 @@ export const Component = (props: MenuModulePropTypes) => {
   const {
     hublData: {
       navigation: { children: navDataArray = [] },
+      megaMenu: { children: megaMenuDataArray = [] },
       companyName,
       defaultLogo,
       logoLink,
@@ -57,18 +59,28 @@ export const Component = (props: MenuModulePropTypes) => {
   defaultLogo.suppress_company_name = logoField.suppress_company_name;
   const logoToUse = logoField.override_inherited_src ? logoField : defaultLogo;
 
+  console.log("hubl", props.hublData);
+
   return (
-    <div>
-      <Island module={MainMenu} navItems={navDataArray} clientOnly={true} />
-    </div>
+    <section className="bg-none">
+      <p>poo</p>
+      <Island
+        module={MainMenu}
+        navItems={navDataArray}
+        megaMenuItems={megaMenuDataArray}
+        logo={logoToUse}
+        clientOnly={true}
+      />
+    </section>
   );
 };
 
-//export { fields } from "./fields.js";
+export { fields } from "./fields.js";
 
 export const hublDataTemplate = `
   {% set hublData = {
       "navigation": menu(module.groupNavigation.menu, "site_root"),
+      "megaMenu": menu(module.groupNavigation.megaMenu, "site_root"),
       "companyName": branding_company_name,
       "logoLink": brand_settings.logo.link,
       "defaultLogo": {
@@ -88,4 +100,10 @@ export const meta: ModuleMeta = {
   content_types: ["BLOG_LISTING", "BLOG_POST", "SITE_PAGE", "LANDING_PAGE"],
   icon: SiteHeaderSVG,
   categories: ["design"],
+};
+
+export const defaultModuleConfig = {
+  moduleName: "elevate/components/modules/site_header",
+  version: 0,
+  themeModule: true,
 };
