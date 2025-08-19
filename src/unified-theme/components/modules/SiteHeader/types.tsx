@@ -4,6 +4,7 @@ import {
   ColorFieldType,
   LogoFieldType,
   BooleanFieldType,
+  ImageFieldType,
 } from "@hubspot/cms-components/fields";
 import { SizeOption, maxMenuDepth } from "../../MenuComponent/types.js";
 import { MenuComponentProps } from "../../MenuComponent/types.js";
@@ -17,7 +18,7 @@ export type MenuDataType = {
   children?: MenuDataType[];
 };
 
-interface GroupButton extends ButtonContentType {
+export interface GroupButton extends ButtonContentType {
   showButton: BooleanFieldType["default"];
 }
 
@@ -54,6 +55,9 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
     megaMenu: {
       children: MenuDataType[];
     };
+    topBarMenu: {
+      children: MenuDataType[];
+    };
     companyName: string; // Fallback if no logo is present
     defaultLogo: LogoFieldType["default"]; // Temporary until logoField is fixed
     logoLink: string;
@@ -70,6 +74,7 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
     menuName: TextFieldType["default"];
   };
   styles: MenuModuleStyles;
+  topBarImages: { images: { logoImage: ImageFieldType["default"] }[] };
 }
 
 export type MainNavProps = {

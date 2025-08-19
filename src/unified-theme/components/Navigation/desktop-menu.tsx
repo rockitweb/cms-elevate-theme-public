@@ -1,21 +1,31 @@
 import { MenuDataType } from "../modules/SiteHeader/types.js";
+import { Button } from "../ui/button.js";
 
 type DesktopMenuProps = {
   navItems: MenuDataType[];
   megaMenuItems?: MenuDataType[];
+  
 };
 
 export function DesktopMenu(
   { navItems, megaMenuItems }: DesktopMenuProps = { navItems: [] },
 ) {
   return (
-    <nav className="flex  bg-blue-200">
+    <nav className="flex ">
       {/* Desktop menu content goes here */}
       <div className="flex w-1/3">
-        <ul className="flex flex-col ">
+        <ul className="flex flex-col h-full justify-between align-start ">
           {navItems.map((item) => (
-            <li key={item.url} className="px-4">
-              <a href={item.url}>{item.label}</a>
+            <li key={item.url} className=" font-bold">
+              <Button
+                key={item.url}
+                variant="link"
+                size="sm"
+                asChild
+                className="text-black p-0 w-fit text-lg"
+              >
+                <a href={item.url}>{item.label}</a>
+              </Button>
             </li>
           ))}
         </ul>
@@ -23,10 +33,15 @@ export function DesktopMenu(
       {/* Mega menu content if available in a 3 column grid */}
       {megaMenuItems && megaMenuItems.length > 0 && (
         <div className="flex w-2/3">
-          <ul className="grid grid-cols-3 gap-4">
+          <ul className="grid grid-cols-3 gap-4 gap-y-8 ">
             {megaMenuItems.map((item) => (
               <div className="flex flex-col" key={item.url}>
-                <h2 key={item.url}>{item.label}</h2>
+                <h2
+                  className="text-lg! font-semibold text-niba-blue"
+                  key={item.url}
+                >
+                  {item.label}
+                </h2>
                 <SubMenus navItems={item.children} />
               </div>
             ))}
@@ -39,11 +54,17 @@ export function DesktopMenu(
 
 function SubMenus({ navItems }: { navItems: MenuDataType[] }) {
   return (
-    <ul className="flex flex-col ">
+    <ul className="flex flex-col items-start, justify-center">
       {navItems.map((item) => (
-        <li key={item.url} className="px-4">
+        <Button
+          key={item.url}
+          variant="link"
+          size="sm"
+          asChild
+          className="text-black p-0 w-fit font-normal"
+        >
           <a href={item.url}>{item.label}</a>
-        </li>
+        </Button>
       ))}
     </ul>
   );

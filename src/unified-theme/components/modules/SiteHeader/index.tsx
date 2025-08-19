@@ -19,6 +19,12 @@ import { MenuModulePropTypes, MainNavProps } from "./types.js";
 // @ts-expect-error -- ?island not typed
 import MainMenu from "../../Navigation/mainMenu.js?island";
 import { Section } from "../../section/index.js";
+import { Button } from "../../ui/button.js";
+import {
+  getLinkFieldHref,
+  getLinkFieldRel,
+  getLinkFieldTarget,
+} from "../../utils/content-fields.js";
 //import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
 
 ///import LanguageSwitcherIsland from '../../LanguageSwitcherComponent/index.js?island';
@@ -28,6 +34,7 @@ export const Component = (props: MenuModulePropTypes) => {
     hublData: {
       navigation: { children: navDataArray = [] },
       megaMenu: { children: megaMenuDataArray = [] },
+      topBarMenu: { children: topBarMenuDataArray = [] },
       companyName,
       defaultLogo,
       logoLink,
@@ -42,34 +49,29 @@ export const Component = (props: MenuModulePropTypes) => {
     },
     groupButton,
     styles,
+    topBarImages,
   } = props;
 
   //console.log("Nav Arrays:", navDataArray);
   //const isEditorMode = isInEditor ?? false;
 
-  const {
-    showButton,
-    buttonContentText: buttonText,
-    buttonContentLink: buttonLink,
-    buttonContentShowIcon: showIcon,
-    buttonContentIconPosition: iconPosition,
-  } = groupButton;
-
   // Temporary until logoField is fixed
   defaultLogo.suppress_company_name = logoField.suppress_company_name;
   const logoToUse = logoField.override_inherited_src ? logoField : defaultLogo;
 
-  console.log("hubl", props.hublData);
+  //console.log("props", props);
 
   return (
-    <section className="bg-none">
-      <p>poo</p>
+    <section className=" h-full min-h-[80px]">
       <Island
         module={MainMenu}
         navItems={navDataArray}
         megaMenuItems={megaMenuDataArray}
+        topBarMenuItems={topBarMenuDataArray}
+        topBarImages={topBarImages}
         logo={logoToUse}
         clientOnly={true}
+        buttonGroup={groupButton}
       />
     </section>
   );
@@ -81,6 +83,7 @@ export const hublDataTemplate = `
   {% set hublData = {
       "navigation": menu(module.groupNavigation.menu, "site_root"),
       "megaMenu": menu(module.groupNavigation.megaMenu, "site_root"),
+      "topBarMenu": menu(module.groupNavigation.topBarMenu, "site_root"),
       "companyName": branding_company_name,
       "logoLink": brand_settings.logo.link,
       "defaultLogo": {

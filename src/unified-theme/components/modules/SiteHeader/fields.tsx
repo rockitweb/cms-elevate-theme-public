@@ -9,6 +9,8 @@ import {
   BooleanField,
   AdvancedVisibility,
   IconField,
+  RepeatedFieldGroup,
+  ImageField,
 } from "@hubspot/cms-components/fields";
 import { ButtonContent, ButtonStyle } from "../../fieldLibrary/index.js";
 import { limitedColorDefaults } from "../../utils/theme-color-sets.js";
@@ -37,6 +39,11 @@ export const fields = (
     <FieldGroup label="Navigation" name="groupNavigation" display="inline">
       <MenuField label="Menu" name="menu" default="Primary Menu" />
       <MenuField label="Mega Menu" name="megaMenu" default="Mega Menu" />
+      <MenuField
+        label="Top Bar Menu"
+        name="topBarMenu"
+        default="Top Bar Menu"
+      />
     </FieldGroup>
     <FieldGroup label="Button" name="groupButton" display="inline">
       <BooleanField
@@ -89,6 +96,30 @@ export const fields = (
       required={true}
       locked={true}
     />
+    <RepeatedFieldGroup
+      name="topBarImages"
+      label="Top Bar Images"
+      occurrence={{
+        min: 1,
+        max: 2,
+        default: 2,
+      }}
+      default={[
+        {
+          logoImage: {
+            src: "https://441977205.fs1.hubspotusercontent-ap1.net/hubfs/441977205/need%20a%20broker%20logo.svg",
+          },
+        },
+        {
+          logoImage: {
+            src: "https://441977205.fs1.hubspotusercontent-ap1.net/hubfs/441977205/insure%20your%20future%20logo.svg",
+          },
+        },
+      ]}
+    >
+      <ImageField label="Logo Image" name="logoImage" required={true} />
+    </RepeatedFieldGroup>
+
     <FieldGroup label="Styles" name="styles" tab="STYLE">
       <FieldGroup label="Menu" name="groupMenu" display="inline">
         <ColorField

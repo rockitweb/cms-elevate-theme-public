@@ -92,7 +92,7 @@ h6,
   font-weight: 400;
 }
 
-h1,
+
 .hs-elevate-h1 {
   font-family: var(--hsElevate--h1__font);
   font-size: calc(var(--hsElevate--h1__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -100,7 +100,7 @@ h1,
   font-weight: var(--hsElevate--h1__fontWeight);
 }
 
-h2,
+
 .hs-elevate-h2 {
   font-family: var(--hsElevate--h2__font);
   font-size: calc(var(--hsElevate--h2__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -108,7 +108,7 @@ h2,
   font-weight: var(--hsElevate--h2__fontWeight);
 }
 
-h3,
+
 .hs-elevate-h3 {
   font-family: var(--hsElevate--h3__font);
   font-size: calc(var(--hsElevate--h3__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -116,7 +116,7 @@ h3,
   font-weight: var(--hsElevate--h3__fontWeight);
 }
 
-h4,
+
 .hs-elevate-h4 {
   font-family: var(--hsElevate--h4__font);
   font-size: calc(var(--hsElevate--h4__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -124,7 +124,7 @@ h4,
   font-weight: var(--hsElevate--h4__fontWeight);
 }
 
-h5,
+
 .hs-elevate-h5 {
   font-family: var(--hsElevate--h5__font);
   font-size: calc(var(--hsElevate--h5__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -132,7 +132,7 @@ h5,
   font-weight: var(--hsElevate--h5__fontWeight);
 }
 
-h6,
+
 .hs-elevate-h6 {
   font-family: var(--hsElevate--h6__font);
   font-size: calc(var(--hsElevate--h6__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -149,32 +149,32 @@ h6,
     font-size: var(--hsElevate--display2__fontSize);
   }
 
-  h1,
+
   .hs-elevate-h1 {
     font-size: var(--hsElevate--h1__fontSize);
   }
 
-  h2,
+
   .hs-elevate-h2 {
     font-size: var(--hsElevate--h2__fontSize);
   }
 
-  h3,
+ 
   .hs-elevate-h3 {
     font-size: var(--hsElevate--h3__fontSize);
   }
 
-  h4,
+
   .hs-elevate-h4 {
     font-size: var(--hsElevate--h4__fontSize);
   }
 
-  h5,
+
   .hs-elevate-h5 {
     font-size: var(--hsElevate--h5__fontSize);
   }
 
-  h6,
+
   .hs-elevate-h6 {
     font-size: var(--hsElevate--h6__fontSize);
   }

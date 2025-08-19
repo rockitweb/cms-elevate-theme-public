@@ -15,24 +15,26 @@ export default function HamburgerButton({
       onClick={onClick}
       aria-label={isOpen ? "Close menu" : "Open menu"}
       variant="ghost"
-      size="icon"
+
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M4 12h16" />
-        <path d="M4 18h16" />
-        <path d="M4 6h16" />
-      </svg>
-      Menu
+      <div className="flex gap-2 items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 12h16" />
+          <path d="M4 18h16" />
+          <path d="M4 6h16" />
+        </svg>
+        Menu
+      </div>
     </Button>
   );
 }
