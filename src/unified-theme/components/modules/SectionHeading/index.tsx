@@ -17,12 +17,12 @@ export function Component({ fieldValues }: SectionHeadingProps) {
   //console.log('Section Heading fieldValues', fieldValues);
   return (
     <div className="flex flex-col items-center  text-center gap-2 font-display">
-      <h2 className="text-[24px]/[24px]! m-0! text-niba-blue font-black line">
+      <h2 className="text-[24px] m-0! text-niba-blue font-black line">
         <SanitizedContent content={fieldValues.title} />
       </h2>
-      <p className="text-[20px]! font-light!">
+      <div className="text-[20px] font-light! max-w-4/5">
         <SanitizedContent content={fieldValues.message} />
-      </p>
+      </div>
     </div>
   );
 }
