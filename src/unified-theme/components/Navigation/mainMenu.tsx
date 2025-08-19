@@ -43,7 +43,9 @@ export function MainMenu({
       <TopBar menuItems={topBarMenuItems} images={topBarImages} />
       <div className="flex items-center justify-between bg-white py-6 ">
         <div className="flex items-center justify-between  bg-white max-w-[1400px] w-full mx-auto  ">
-          <img src={logo.src} alt={logo.alt} className=" h-[50px]" />
+          <a href="/" aria-label="Home">
+            <img src={logo.src} alt={logo.alt} className=" h-[50px]" />
+          </a>
           <div className="flex gap-5 items-center">
             <HamburgerButton onClick={() => setOpen(!open)} isOpen={open} />
             <div>
