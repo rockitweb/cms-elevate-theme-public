@@ -5,7 +5,7 @@ import {
   RepeatedFieldGroup,
   RichTextField,
 } from "@hubspot/cms-components/fields";
-import "../../../assets/_hs/css/tailwind.hubl.css";
+import "../../../styles/localdev.module.css"
 export type SectionHeadingProps = {
   fieldValues: {
     title: string;

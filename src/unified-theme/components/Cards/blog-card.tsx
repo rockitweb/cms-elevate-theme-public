@@ -26,12 +26,12 @@ export function BlogCard({ blog }: BlogCardProps) {
       <CardContent className="text-[14px] flex-1 overflow-auto">
         <SafeHtmlRenderer content={blog.post_summary} />
       </CardContent>
-      <CardFooter className="flex justify-between items-center">
+      <CardFooter className="flex justify-between items-center pt-4">
         <Button asChild variant="outline" size="sm">
           <a href={`/blog/${blog.id}`}>Read More</a>
         </Button>
         {blog.extraButton && (
-          <Button asChild={true} variant={blog.extraButton.buttonStyleVariant}>
+          <Button asChild={true} variant={blog.extraButton.buttonStyleVariant} >
             <a
               href={getLinkFieldHref(blog.extraButton.buttonContentLink)}
               target={getLinkFieldTarget(blog.extraButton.buttonContentLink)}
