@@ -65,12 +65,7 @@ a.hs-elevate-link--secondary:hover,
 
 /* Headings */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+
 .hs-elevate-display-1,
 .hs-elevate-display-2 {
   line-height: var(--hsElevate--heading__lineHeight);
