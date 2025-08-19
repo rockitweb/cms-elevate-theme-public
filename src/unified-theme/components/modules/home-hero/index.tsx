@@ -1,7 +1,7 @@
 import { Section } from '../../section/index.js';
 import { HeroHeading } from '../../HeroHeading/index.js';
 import { ModuleMeta } from '../../types/modules.js';
-
+import "../../../styles/localdev.module.css"
 import {
   BackgroundImageField,
   ModuleFields,
@@ -9,12 +9,10 @@ import {
   RichTextField,
   TextField,
   UrlField,
-  UrlFieldType,
-  VideoField,
-  VideoFieldType,
+
 } from '@hubspot/cms-components/fields';
 import { HeroCards } from './components/hero-cards.js';
-import SanitizedContent from '../../SanitizeHTML/index.js';
+
 import HeroBackgroundVideo from '../../VideoHero/index.js';
 
 export type SectionHeadingProps = {
@@ -127,14 +125,14 @@ export const fields = (
       label="Title"
       required={true}
       locked={false}
-      default={'Section Heading'}
+      default={'NIBA is the unified voice of the insurance broking profession across Australia'}
     />
     <RichTextField
       name="message"
       label="Message"
       required={false}
       locked={false}
-      default={'Add a subheading or message here.'}
+      default={'Empowering our members and community within the Insurance Broking Profession'}
     />
     <RepeatedFieldGroup
       name="cards"
