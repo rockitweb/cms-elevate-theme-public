@@ -32,7 +32,7 @@ export function Component({ fieldValues }: CountUpProps) {
           <div className="text-niba-blue text-[44px] font-bold">
             {formatNumberWithCommas(countValue)} {"+"}
           </div>
-          <p className="text-niba-blue-light text-[20px]">{message}</p>
+          <p className="text-niba-blue-light text-[20px] max-w-1/2">{message}</p>
         </div>
       </CardContent>
     </Card>
@@ -56,7 +56,7 @@ export const fields = (
       placeholder="1000"
     />
 
-    <TextField label="Message" name="message" default="Cool Things" required />
+    <TextField label="Message" name="message" default="Cool Things Cool Things Cool Things Cool Things Cool Things Cool Things" required />
   </ModuleFields>
 );
 
