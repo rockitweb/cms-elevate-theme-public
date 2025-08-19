@@ -177,10 +177,10 @@ a.hs-elevate-link--secondary:hover,
 
 /* Lists */
 
-ul,
+/* ul,
 ol {
   margin-block: var(--hsElevate--text__margin);
-}
+} */
 
 /* Blockquotes */
 
