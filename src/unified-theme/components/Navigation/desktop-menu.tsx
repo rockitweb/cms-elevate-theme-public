@@ -4,7 +4,6 @@ import { Button } from "../ui/button.js";
 type DesktopMenuProps = {
   navItems: MenuDataType[];
   megaMenuItems?: MenuDataType[];
-  
 };
 
 export function DesktopMenu(
@@ -35,15 +34,15 @@ export function DesktopMenu(
         <div className="flex w-2/3">
           <ul className="grid grid-cols-3 gap-4 gap-y-8 ">
             {megaMenuItems.map((item) => (
-              <div className="flex flex-col" key={item.url}>
-                <h2
+              <li className="flex flex-col" key={item.url}>
+                <div
                   className="text-lg! font-semibold text-niba-blue"
                   key={item.url}
                 >
                   {item.label}
-                </h2>
+                </div>
                 <SubMenus navItems={item.children} />
-              </div>
+              </li>
             ))}
           </ul>
         </div>
