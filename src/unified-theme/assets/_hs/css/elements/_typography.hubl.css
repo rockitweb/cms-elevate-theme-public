@@ -65,7 +65,12 @@ a.hs-elevate-link--secondary:hover,
 
 /* Headings */
 
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .hs-elevate-display-1,
 .hs-elevate-display-2 {
   line-height: var(--hsElevate--heading__lineHeight);
@@ -87,7 +92,7 @@ a.hs-elevate-link--secondary:hover,
   font-weight: 400;
 }
 
-
+h1,
 .hs-elevate-h1 {
   font-family: var(--hsElevate--h1__font);
   font-size: calc(var(--hsElevate--h1__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -95,7 +100,7 @@ a.hs-elevate-link--secondary:hover,
   font-weight: var(--hsElevate--h1__fontWeight);
 }
 
-
+h2,
 .hs-elevate-h2 {
   font-family: var(--hsElevate--h2__font);
   font-size: calc(var(--hsElevate--h2__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -103,7 +108,7 @@ a.hs-elevate-link--secondary:hover,
   font-weight: var(--hsElevate--h2__fontWeight);
 }
 
-
+h3,
 .hs-elevate-h3 {
   font-family: var(--hsElevate--h3__font);
   font-size: calc(var(--hsElevate--h3__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -111,7 +116,7 @@ a.hs-elevate-link--secondary:hover,
   font-weight: var(--hsElevate--h3__fontWeight);
 }
 
-
+h4,
 .hs-elevate-h4 {
   font-family: var(--hsElevate--h4__font);
   font-size: calc(var(--hsElevate--h4__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -119,7 +124,7 @@ a.hs-elevate-link--secondary:hover,
   font-weight: var(--hsElevate--h4__fontWeight);
 }
 
-
+h5,
 .hs-elevate-h5 {
   font-family: var(--hsElevate--h5__font);
   font-size: calc(var(--hsElevate--h5__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -127,7 +132,7 @@ a.hs-elevate-link--secondary:hover,
   font-weight: var(--hsElevate--h5__fontWeight);
 }
 
-
+h6,
 .hs-elevate-h6 {
   font-family: var(--hsElevate--h6__font);
   font-size: calc(var(--hsElevate--h6__fontSize) * var(--hsElevate--heading__tablet-modifier));
@@ -144,32 +149,32 @@ a.hs-elevate-link--secondary:hover,
     font-size: var(--hsElevate--display2__fontSize);
   }
 
-
+  h1,
   .hs-elevate-h1 {
     font-size: var(--hsElevate--h1__fontSize);
   }
 
-
+  h2,
   .hs-elevate-h2 {
     font-size: var(--hsElevate--h2__fontSize);
   }
 
- 
+  h3,
   .hs-elevate-h3 {
     font-size: var(--hsElevate--h3__fontSize);
   }
 
-
+  h4,
   .hs-elevate-h4 {
     font-size: var(--hsElevate--h4__fontSize);
   }
 
-
+  h5,
   .hs-elevate-h5 {
     font-size: var(--hsElevate--h5__fontSize);
   }
 
-
+  h6,
   .hs-elevate-h6 {
     font-size: var(--hsElevate--h6__fontSize);
   }
@@ -177,10 +182,10 @@ a.hs-elevate-link--secondary:hover,
 
 /* Lists */
 
-/* ul,
+ul,
 ol {
   margin-block: var(--hsElevate--text__margin);
-} */
+}
 
 /* Blockquotes */
 
