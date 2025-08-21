@@ -14,7 +14,8 @@
 
   ul {
     list-style-type: disc; /* or disc, circle, none, etc. */
-    list-style-position: inside; /* or inside */
+    list-style-position: outside; /* or inside */
+    padding-left: 2.5em;
   }
   a:not(.hs-elevate-button) {
     color: var(--hsElevate--richText__linkColor);
