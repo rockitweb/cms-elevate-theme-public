@@ -9,6 +9,7 @@
     "build": "vite build",
     "upload": "hs project upload",
     "build-upload": "vite build && hs project upload",
+    "build-upload-prod": "vite build && hs project upload --account=niba-prod",
     "yarn-start": "cd src/unified-theme && yarn start",
     "start": "cd src/unified-theme && npm run start",
     "test": "vitest",

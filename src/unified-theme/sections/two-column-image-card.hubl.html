@@ -33,9 +33,8 @@
 
 
 {% dnd_section
-padding={
-    "top": section_vertical_spacing_medium,
-    "bottom": section_vertical_spacing_medium
+  padding={
+    "bottom": 0
   },
   max_width={{ section_width_medium }}
    full_width=false,
@@ -46,7 +45,16 @@ padding={
      {% dnd_row %}
         {% dnd_module width=6,
         path="../components/modules/ImageCard",
-      
+      context={
+    
+        "buttons": [
+          {
+            "buttonLabel": "Learn More",
+            "buttonPage": 23,
+            "buttonVariant": "secondary"
+          }
+        ]
+      }
       %}
       {% end_dnd_module %}
 

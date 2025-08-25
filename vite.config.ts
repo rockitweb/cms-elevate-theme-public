@@ -10,11 +10,9 @@ import tailwindcss from "@tailwindcss/postcss";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [
-    HublPostCSSCleaner(),
-    tsconfigPaths(),
-  ],
+  plugins: [HublPostCSSCleaner(), tsconfigPaths()],
   publicDir: "./dist/",
+  base: "",
   build: {
     outDir: "./src/unified-theme/assets/dist",
     minify: false,
@@ -25,6 +23,7 @@ export default defineConfig({
       input: {
         main: "./src/unified-theme/assets/_hs/css/main.hubl.css",
         tailwindcss: "./src/unified-theme/assets/_hs/css/tailwind.hubl.css",
+        fonts: "./src/unified-theme/assets/_hs/css/fonts.hubl.css",
         caseStudies:
           "./src/unified-theme/assets/_hs/css/templates/case-studies.hubl.css",
         system: "./src/unified-theme/assets/_hs/css/templates/system.hubl.css",
@@ -35,7 +34,13 @@ export default defineConfig({
           "./src/unified-theme/assets/_hs/css/templates/podcast-detail.hubl.css",
       },
       output: {
-        assetFileNames: "css/[name].[ext]",
+        assetFileNames: (assetInfo) => {
+          const ext = assetInfo?.name?.split(".").pop();
+          if (!ext) return "assets/[name].[ext]";
+          if (["woff2", "woff"].includes(ext)) return "fonts/[name].[ext]";
+          if (ext === "css") return "css/[name].[ext]";
+          return "assets/[name].[ext]";
+        },
       },
     },
   },

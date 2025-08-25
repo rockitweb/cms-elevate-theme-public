@@ -34,14 +34,8 @@
             },
             "default": {
               "fallback": "sans-serif",
-              "font": "Inter",
-              "font_set": "GOOGLE",
-              "google_font_variants": [
-                "400",
-                "400i",
-                "600",
-                "600i"
-              ]
+              "font": "Area",
+              "font_set": "custom"
             }
           },
           {
@@ -522,22 +516,10 @@
                     "name": "section_to_edit",
                     "type": "choice",
                     "choices": [
-                      [
-                        "light_section_1",
-                        "Light section 1 (default)"
-                      ],
-                      [
-                        "light_section_2",
-                        "Light section 2"
-                      ],
-                      [
-                        "light_section_3",
-                        "Light section 3"
-                      ],
-                      [
-                        "dark_section_1",
-                        "Dark section 1"
-                      ]
+                      ["light_section_1", "Light section 1 (default)"],
+                      ["light_section_2", "Light section 2"],
+                      ["light_section_3", "Light section 3"],
+                      ["dark_section_1", "Dark section 1"]
                     ],
                     "default": "light_section_1"
                   },
@@ -691,14 +673,8 @@
                             "name": "link_colors",
                             "type": "choice",
                             "choices": [
-                              [
-                                "primary_links",
-                                "Primary"
-                              ],
-                              [
-                                "secondary_links",
-                                "Secondary"
-                              ]
+                              ["primary_links", "Primary"],
+                              ["secondary_links", "Secondary"]
                             ],
                             "default": "primary_links"
                           }
@@ -856,14 +832,8 @@
                             "name": "link_colors",
                             "type": "choice",
                             "choices": [
-                              [
-                                "primary_links",
-                                "Primary"
-                              ],
-                              [
-                                "secondary_links",
-                                "Secondary"
-                              ]
+                              ["primary_links", "Primary"],
+                              ["secondary_links", "Secondary"]
                             ],
                             "default": "primary_links"
                           }
@@ -950,7 +920,7 @@
                                 "opacity": true
                               }
                             },
-                           "default": {
+                            "default": {
                               "color": "#4D6080",
                               "opacity": 100
                             }
@@ -1021,14 +991,8 @@
                             "name": "link_colors",
                             "type": "choice",
                             "choices": [
-                              [
-                                "primary_links",
-                                "Primary"
-                              ],
-                              [
-                                "secondary_links",
-                                "Secondary"
-                              ]
+                              ["primary_links", "Primary"],
+                              ["secondary_links", "Secondary"]
                             ],
                             "default": "primary_links"
                           }
@@ -1185,14 +1149,8 @@
                             "name": "link_colors",
                             "type": "choice",
                             "choices": [
-                              [
-                                "primary_links",
-                                "Primary"
-                              ],
-                              [
-                                "secondary_links",
-                                "Secondary"
-                              ]
+                              ["primary_links", "Primary"],
+                              ["secondary_links", "Secondary"]
                             ],
                             "default": "secondary_links"
                           }
@@ -1255,7 +1213,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -1273,7 +1231,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -1468,7 +1426,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -1486,7 +1444,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -1680,7 +1638,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -1698,7 +1656,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -1893,7 +1851,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -1911,7 +1869,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -2343,7 +2301,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -2361,7 +2319,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -2800,14 +2758,8 @@
                 "display": "radio",
                 "type": "choice",
                 "choices": [
-                  [
-                    "filled",
-                    "Filled"
-                  ],
-                  [
-                    "no_fill",
-                    "No fill"
-                  ]
+                  ["filled", "Filled"],
+                  ["no_fill", "No fill"]
                 ],
                 "default": "filled"
               },
@@ -2823,14 +2775,8 @@
                 "display": "buttons",
                 "preset": "filled",
                 "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               },
@@ -2846,14 +2792,8 @@
                 "display": "buttons",
                 "preset": "unfilled",
                 "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               },
@@ -2974,14 +2914,8 @@
                     "name": "link_colors",
                     "type": "choice",
                     "choices": [
-                      [
-                        "primary_links",
-                        "Primary"
-                      ],
-                      [
-                        "secondary_links",
-                        "Secondary"
-                      ]
+                      ["primary_links", "Primary"],
+                      ["secondary_links", "Secondary"]
                     ],
                     "default": "primary_links"
                   }
@@ -3000,14 +2934,8 @@
                 "display": "radio",
                 "type": "choice",
                 "choices": [
-                  [
-                    "filled",
-                    "Filled"
-                  ],
-                  [
-                    "no_fill",
-                    "No fill"
-                  ]
+                  ["filled", "Filled"],
+                  ["no_fill", "No fill"]
                 ],
                 "default": "filled"
               },
@@ -3023,14 +2951,8 @@
                 "display": "buttons",
                 "preset": "filled",
                 "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               },
@@ -3046,14 +2968,8 @@
                 "display": "buttons",
                 "preset": "unfilled",
                 "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               },
@@ -3173,14 +3089,8 @@
                     "name": "link_colors",
                     "type": "choice",
                     "choices": [
-                      [
-                        "primary_links",
-                        "Primary"
-                      ],
-                      [
-                        "secondary_links",
-                        "Secondary"
-                      ]
+                      ["primary_links", "Primary"],
+                      ["secondary_links", "Secondary"]
                     ],
                     "default": "primary_links"
                   }
@@ -3199,14 +3109,8 @@
                 "display": "radio",
                 "type": "choice",
                 "choices": [
-                  [
-                    "filled",
-                    "Filled"
-                  ],
-                  [
-                    "no_fill",
-                    "No fill"
-                  ]
+                  ["filled", "Filled"],
+                  ["no_fill", "No fill"]
                 ],
                 "default": "filled"
               },
@@ -3222,14 +3126,8 @@
                 "display": "buttons",
                 "preset": "filled",
                 "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               },
@@ -3245,14 +3143,8 @@
                 "display": "buttons",
                 "preset": "unfilled",
                 "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               },
@@ -3370,14 +3262,8 @@
                         "name": "link_colors",
                         "type": "choice",
                         "choices": [
-                          [
-                            "primary_links",
-                            "Primary"
-                          ],
-                          [
-                            "secondary_links",
-                            "Secondary"
-                          ]
+                          ["primary_links", "Primary"],
+                          ["secondary_links", "Secondary"]
                         ],
                         "default": "secondary_links"
                       }
@@ -3398,14 +3284,8 @@
                 "display": "radio",
                 "type": "choice",
                 "choices": [
-                  [
-                    "filled",
-                    "Filled"
-                  ],
-                  [
-                    "no_fill",
-                    "No fill"
-                  ]
+                  ["filled", "Filled"],
+                  ["no_fill", "No fill"]
                 ],
                 "default": "filled"
               },
@@ -3421,14 +3301,8 @@
                 "display": "buttons",
                 "preset": "filled",
                 "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               },
@@ -3444,14 +3318,8 @@
                 "display": "buttons",
                 "preset": "unfilled",
                 "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               },
@@ -3488,7 +3356,6 @@
                       "color": "#18233B",
                       "opacity": 100
                     }
-
                   },
                   {
                     "label": "Text color",
@@ -3571,14 +3438,8 @@
                     "name": "link_colors",
                     "type": "choice",
                     "choices": [
-                      [
-                        "primary_links",
-                        "Primary"
-                      ],
-                      [
-                        "secondary_links",
-                        "Secondary"
-                      ]
+                      ["primary_links", "Primary"],
+                      ["secondary_links", "Secondary"]
                     ],
                     "default": "secondary_links"
                   }
@@ -3637,7 +3498,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "Rounded"],
-                  [ "rectangle", "Rectangle"]
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "pill"
               },
@@ -3655,7 +3516,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "Rounded"],
-                  [ "rectangle", "Rectangle"]
+                  ["rectangle", "Rectangle"]
                 ],
                 "default": "rounded"
               }

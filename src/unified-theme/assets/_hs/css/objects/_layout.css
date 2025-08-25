@@ -1,5 +1,5 @@
 .dnd-section {
-  padding: var(--hsElevate--section--medium__verticalPadding)
+  padding: var(--hsElevate--section--extraSmall__verticalPadding)
     var(--hsElevate--section--horizontalPadding);
 }
 

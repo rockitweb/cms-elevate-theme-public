@@ -21,30 +21,34 @@ import { Button } from "../../ui/button.js";
 import SanitizeHtml from "../../SanitizeHTML/index.js";
 
 export type ImageCardModuleProps = {
-  image: HsBackgroundImageField;
-  title: string;
-  message: any;
-  buttons?: {
-    buttonLabel: string;
-    page: any;
-    variant:
-      | "link"
-      | "default"
-      | "secondary"
-      | "outline"
-      | "destructive"
-      | "ghost"
-      | null
-      | undefined;
-  }[];
+  fieldValues: {
+    image: HsBackgroundImageField;
+    title: string;
+    message: any;
+    buttons?: {
+      buttonLabel: string;
+      buttonPage: any;
+      buttonVariant:
+        | "link"
+        | "default"
+        | "secondary"
+        | "outline"
+        | "destructive"
+        | "ghost"
+        | "white"
+        | "orange";
+    }[];
+  };
 };
-export function Component({
-  image,
-  title,
-  message,
-  buttons,
-}: ImageCardModuleProps) {
-  //console.log("ImageCardModuleProps", buttons);
+export function Component({ fieldValues }: ImageCardModuleProps) {
+  console.log("Cunt", fieldValues);
+
+  const { image, title, message, buttons } = fieldValues;
+
+  /*   const buttons = [
+    { buttonLabel: "Click Me", buttonPage: 23, buttonVariant: "orange" },
+  ]; */
+
   return (
     <Card className="relative overflow-hidden rounded-2xl  justify-end text-white min-h-[500px]">
       <div
@@ -59,17 +63,34 @@ export function Component({
 
       <div className="relative z-10  h-full flex flex-col justify-between">
         <CardHeader className="">
-          <CardTitle className="text-3xl font-bold ">{title}</CardTitle>
+          <CardTitle className="text-[30px] font-black ">{title}</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="text-[15px]">
           <SanitizeHtml content={message} />
         </CardContent>
         <CardFooter className="mt-5">
           {buttons &&
             buttons.map((button) => {
               return (
-                <Button key={button.buttonLabel} variant={button.variant}>
-                  {button.buttonLabel}
+                <Button
+                  key={button.buttonLabel}
+                  variant={
+                    button.buttonVariant as
+                      | "link"
+                      | "default"
+                      | "secondary"
+                      | "outline"
+                      | "destructive"
+                      | "ghost"
+                      | "white"
+                      | "orange"
+                  }
+                  asChild={true}
+                >
+                  <a href={(button.buttonPage || 0).toString()}>
+                    {" "}
+                    {button.buttonLabel}
+                  </a>
                 </Button>
               );
             })}
@@ -120,9 +141,9 @@ networking opportunities and representation."
       }}
       default={[
         {
-          label: "Button Label",
-          page: undefined,
-          variant: "default",
+          buttonLabel: "Click Me",
+          buttonPage: 23,
+          buttonVariant: "secondary",
         },
       ]}
     >
@@ -133,30 +154,32 @@ networking opportunities and representation."
         required
       />
       <PageField
-        name="page_field"
+        name="buttonPage"
         label="Page"
         helpText="Pulls data from the selected page."
         required={true}
         locked={false}
-        placeholder="Page to pull from"
+        placeholder="0"
+        default={23} // Default to a specific page ID
       />
       <ChoiceField
-        name="variant"
+        name="buttonVariant"
         label="Button Variant"
         required={true}
         locked={false}
         multiple={false}
         display="select"
         choices={[
-          ["default", "Default"],
           ["primary", "Primary"],
           ["secondary", "Secondary"],
           ["outline", "Outline"],
           ["destructive", "Destructive"],
           ["ghost", "Ghost"],
           ["link", "Link"],
+          ["white", "White"],
+          ["orange", "Orange"],
         ]}
-        default="default"
+        default="primary"
       />
     </RepeatedFieldGroup>
   </ModuleFields>

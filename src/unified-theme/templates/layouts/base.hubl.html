@@ -18,6 +18,16 @@
       <link rel="shortcut icon" href="{{ brand_settings.favicon.src|escape_url }}" />
     {% endif %}
     <meta name="description" content="{{ page_meta.meta_description }}" />
+ 
+    {# This is intended to be used if a template requires template specific style sheets #}
+    {% if template_css %}
+      <link rel="stylesheet" href="{{ get_asset_url(template_css) }}" />
+    {% endif %}
+    {# This is intended to be used if a template requires template specific JavaScript files #}
+    {% if template_js %}
+      <script src="{{ get_asset_url(template_js) }}" defer></script>
+    {% endif %}
+    {# Load the main CSS file for the theme #}
  {{ require_css(get_asset_url("../../assets/dist/css/main.hubl.css")) }}
     {% js_partial
       path="@projects/NIBA Theme/unified-theme/components/partials/GlobalCSS/index.tsx",
@@ -32,12 +42,12 @@
   {# .theme-overrides is used to apply style field css variables #}
   <body class="body-wrapper {{ builtin_body_classes }} theme-overrides">
 
-    {% block header %}
+   {% block header %}
       {% global_partial path="../partials/header.hubl.html" %}
-    {% endblock header %}
+    {% endblock header %} 
 
     {# The main-content ID is used for the navigation skipper in the header.html file #}
-    <main id="main-content">
+    <main id="main-content" class=" font-display">
       {% block body %}
       {% endblock body %}
     </main>

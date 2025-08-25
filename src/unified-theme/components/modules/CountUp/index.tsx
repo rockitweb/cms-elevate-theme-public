@@ -26,14 +26,13 @@ export function Component({ fieldValues }: CountUpProps) {
   //console.log("Hero Cards fieldValues", fieldValues);
   const { countValue, message } = fieldValues;
   return (
-    <Card className="bg-transparent border-0 shadow-none">
+    <Card className="bg-transparent border-0 shadow-none p-0">
       <CardContent>
-        <div className="flex flex-col justify-center items-center  gap-5 text-center">
-          <div className="text-niba-blue text-7xl font-bold">
-            {" "}
-            {formatNumberWithCommas(countValue)}
+        <div className="flex flex-col justify-center items-center  gap-1 text-center">
+          <div className="text-niba-blue text-[44px] font-bold">
+            {formatNumberWithCommas(countValue)} {"+"}
           </div>
-          <p className="text-niba-blue-light text-3xl">{message}</p>
+          <p className="text-niba-blue-light text-[20px] max-w-1/2">{message}</p>
         </div>
       </CardContent>
     </Card>
@@ -57,7 +56,7 @@ export const fields = (
       placeholder="1000"
     />
 
-    <TextField label="Message" name="message" default="Cool Things" required />
+    <TextField label="Message" name="message" default="Cool Things Cool Things Cool Things Cool Things Cool Things Cool Things" required />
   </ModuleFields>
 );
 

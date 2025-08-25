@@ -1,0 +1,205 @@
+import { Section } from '../../section/index.js';
+import { HeroHeading } from '../../HeroHeading/index.js';
+import { ModuleMeta } from '../../types/modules.js';
+import "../../../styles/localdev.module.css"
+import {
+  BackgroundImageField,
+  ModuleFields,
+  RepeatedFieldGroup,
+  RichTextField,
+  TextField,
+  UrlField,
+
+} from '@hubspot/cms-components/fields';
+import { HeroCards } from './components/hero-cards.js';
+
+import HeroBackgroundVideo from '../../VideoHero/index.js';
+
+export type SectionHeadingProps = {
+  fieldValues: {
+    title: string;
+    message: string;
+    backgroundImage: {
+      src: string;
+      background_position: string;
+      background_size: string;
+    };
+    videoUrl?: any;
+    cards: {
+      icon: string;
+      heading: string;
+      message: string;
+    }[];
+  };
+};
+
+export function Component({ fieldValues }: SectionHeadingProps) {
+  const { title, message, backgroundImage, cards, videoUrl } = fieldValues;
+  //console.log('Hero Heading fieldValues', fieldValues);
+
+  if (videoUrl) {
+    return (
+      <div className="relative w-full h-full flex flex-col items-center justify-center">
+        <HeroBackgroundVideo videoUrl={videoUrl.href}>
+          <Section maxWidth="max-w-[1200px]">
+            <HeroHeading title={title} message={message} />
+          </Section>
+        </HeroBackgroundVideo>
+        <Section maxWidth="max-w-[1000px] z-1">
+          <div className="-mt-[150px]">
+            <HeroCards cards={cards} />
+          </div>
+        </Section>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative w-full h-full flex flex-col items-center justify-center">
+      <div className="grid w-full">
+        <div className="row-start-1 row-end-2 col-start-1 col-end-2 h-[600px]">
+          <img
+            src={backgroundImage.src}
+            alt={title}
+            className="object-cover w-full h-full "
+          />
+        </div>
+        <div className=" w-full h-full row-start-1 row-end-2 col-start-1 col-end-2 flex flex-col items-center justify-center">
+          <Section maxWidth="max-w-[1200px]">
+            <HeroHeading title={title} message={message} />
+          </Section>
+        </div>
+      </div>
+      <Section maxWidth="max-w-[1000px]">
+        <div className="-mt-[150px]">
+          <HeroCards cards={cards} />
+        </div>
+      </Section>
+    </div>
+  );
+}
+export const fields = (
+  <ModuleFields>
+    <BackgroundImageField
+      label="Background Image"
+      name="backgroundImage"
+      required={true}
+      default={{
+        src: 'https://picsum.photos/seed/picsum/2000',
+        background_position: 'MIDDLE_CENTER',
+        background_size: 'COVER',
+      }}
+    />
+    {/*    <VideoField
+      name="video"
+      label="Background Video"
+      required={true}
+      locked={false}
+      showAdvancedOptions={true}
+      default={{
+        player_id: 226235253239,
+        height: 1224,
+        width: 1872,
+        loop_video: false,
+        mute_by_default: true,
+        autoplay: true,
+        hide_controls: true,
+      }}
+    /> */}
+
+    <UrlField
+      name="videoUrl"
+      label="Background Video URL"
+      required={false}
+      locked={false}
+      default={{
+        content_id: null,
+        href: 'https://441977205.fs1.hubspotusercontent-ap1.net/hubfs/441977205/NIBA%20short.mp4',
+        type: 'FILE',
+      }}
+      supportedTypes={['FILE']}
+    />
+
+    <RichTextField
+      name="title"
+      label="Title"
+      required={true}
+      locked={false}
+      default={'NIBA is the unified voice of the insurance broking profession across Australia'}
+    />
+    <RichTextField
+      name="message"
+      label="Message"
+      required={false}
+      locked={false}
+      default={'Empowering our members and community within the Insurance Broking Profession'}
+    />
+    <RepeatedFieldGroup
+      name="cards"
+      label="Cards"
+      occurrence={{
+        min: 3,
+        max: 3,
+        default: 3,
+      }}
+      default={[
+        {
+          icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 90 90" fill="currentColor">
+  <path d="M32.96,55.73c3.81-1.96,6.43-5.92,6.43-10.49,0-6.5-5.29-11.79-11.79-11.79s-11.79,5.29-11.79,11.79c0,4.57,2.62,8.53,6.43,10.49-8.24,1.82-15.22,7.73-18.19,15.86-.04.1-.06.24-.06.35,0,.52.42.93.95.93.42,0,.78-.28.9-.66,3.33-9.05,12.03-15.14,21.67-15.18.03,0,.07,0,.1,0,.03,0,.06,0,.09,0,9.66.04,18.37,6.14,21.69,15.21.18.49.72.74,1.21.56.49-.18.74-.72.56-1.21-2.98-8.12-9.95-14.03-18.2-15.85ZM17.7,45.23c0-5.46,4.44-9.9,9.9-9.9s9.9,4.44,9.9,9.9-4.39,9.84-9.8,9.9c-.04,0-.07,0-.11,0-.03,0-.06,0-.1,0-5.41-.06-9.79-4.47-9.79-9.9Z"/>
+  <path d="M81.9,17.14h-33.41c-2.27,0-4.11,1.85-4.11,4.11v20.68c0,1.86,1.24,3.43,2.93,3.94l-1.65,3.4c-.15.31-.09.67.16.91.15.15.35.23.56.23.12,0,.24-.03.36-.08l8.46-4.29h26.71c2.27,0,4.11-1.85,4.11-4.11v-20.68c0-2.27-1.84-4.11-4.11-4.11ZM84.43,41.94c0,1.39-1.13,2.53-2.53,2.53h-26.9c-.12,0-.25.03-.36.08l-6.52,3.31,1.09-2.25c.12-.25.1-.54-.04-.77-.15-.23-.4-.37-.67-.37-1.39,0-2.53-1.13-2.53-2.53v-20.68c0-1.39,1.13-2.52,2.53-2.52h33.41c1.39,0,2.53,1.13,2.53,2.52v20.68Z"/>
+  <path d="M51.21,26.91h27.8c.44,0,.79-.35.79-.79s-.36-.79-.79-.79h-27.8c-.44,0-.79.35-.79.79s.36.79.79.79Z"/>
+  <path d="M79.18,30.8h-27.8c-.44,0-.79.35-.79.79s.35.79.79.79h27.8c.44,0,.79-.35.79-.79s-.36-.79-.79-.79Z"/>
+  <path d="M68.3,36.28h-16.91c-.44,0-.79.35-.79.79s.35.79.79.79h16.91c.44,0,.79-.35.79-.79s-.36-.79-.79-.79Z"/>
+</svg>`,
+          heading: 'REPRESENTATION',
+          message:
+            'Strive to represent the one voice of the insurance broking community.',
+        },
+        {
+          icon: `<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 90 90 ">
+  <path d="M82,45.37c-13.77-24.64-13.44-24.35-14.01-24.51-.51-.13,0-.31-9.5,5.37-.92.55-.24,1.41,1.63,4.69-2.33.86-3.01.26-9.57-2.2-2.22-.81-3.17-.4-10.78.81-2,.31-2.95.99-4.86,3.54-3.08.04-2.4,0-5.24-1.96.66-1.17,1.32-2.38,2.05-3.7.57-1.01.22-.86-9.13-6.45-.42-.26-.97-.11-1.21.33-13.88,24.81-14.28,24.6-13.13,25.28,9.64,5.74,8.91,5.37,9.26,5.37.37,0,.51.02,2.09-2.77,1.25.86,2.09,1.43,2.62,1.78-2.35,3.43-.07,6.6,2.73,6.64-1.32,2.82,1.23,6.09,4.22,5.39,0,3.39,3.59,4.8,5.79,3.37.81,2.95,4.82,3.96,6.73,1.19.26-.37.48-.7.7-1.01,9.39,3.78,11.29.29,10.82-2.4,2.2.22,4.18-1.45,4.14-4,2.29.86,5.02-.84,4.97-3.78,3.04,1.39,6.09-1.8,4.95-4.93,1.23-1.28,2.11-2.18,2.71-2.82,1.98,3.5,2.27,3.59,2.88,3.21,9.26-5.52,9.72-5.41,9.15-6.45ZM17.17,49.86l-7.3-4.36,12.6-22.55,7.3,4.36v.02l-12.61,22.53ZM23,53.73c0-.95.33-1.19,2.09-3.72,1.58-2.29,4.84.2,3.34,2.46-.77,1.1-1.41,1.98-1.89,2.68-1.21,1.36-3.54.57-3.54-1.43ZM28.72,61.32c-1.25.2-2.33-.88-2.33-2.11,0-1.12,1.3-2.42,1.76-3.26l3.23-4.64c1.61-2.31,4.91.24,3.32,2.51-5.04,7.24-4.91,7.35-5.98,7.5ZM35.54,63.08l-.02-.02c-1.1,1.58-1.3,1.94-2.18,2.09-1.28.22-2.38-.79-2.38-2.11,0-.97.09-.84,4.44-7.13.22-.22.53-.84,1.47-.97,1.3-.2,2.33.88,2.33,2.11,0,.66.07.79-3.67,6.03ZM42.23,63.74c-2.02,2.93-2.22,3.52-3.3,3.7-1.25.2-2.35-.84-2.35-2.11,0-.99.73-1.74,2.35-4.09,1.56-2.24,4.91.2,3.3,2.51ZM64.07,54.97c-.84.18.02.48-12.63-6.25-1.01-.55-1.85,1.01-.84,1.56,4.95,2.64,7.85,4.18,9.61,5.13,1.06,2.24-1.03,4.14-2.99,2.84-9.22-4.18-9.68-4.8-10.19-3.65-.48,1.08.24,1.08,8.23,4.69.99,2.4-1.14,4.03-3.06,2.77-6.47-2.6-8.07-3.74-8.18-1.94,0,.79,1.17,1.01,6.97,3.32.37.66.86,1.43.13,2.55-.97,1.5-5.35.11-7.76-.84,2.35-3.54-.18-6.47-2.82-6.53,1.19-2.66-.77-5.57-3.76-5.39.62-3.43-3.92-6.25-6.56-3.28-.97-2.62-4.51-3.89-7.04-.35l-2.77-1.87c1.56-2.79,4.11-7.39,8.34-14.96,2.31,1.63,2.75,2.09,4.84,2.13-.98,1.38-2.2,3.11-3.78,5.35-.77,1.06-.4,2.55.77,3.1l2.4,1.12c6.05,2.18,8.18-4.77,10.12-5.37,1.78-.53,2.57-.66,3.65.06,18.81,12.36,18.33,11.88,18.7,12.56.75,1.28.04,2.95-1.39,3.23ZM66.27,49.95c-1.14-.95-4.73-3.19-18.52-12.25-1.21-.79-2.68-1.01-4.07-.59l-1.05.33c-3.1.97-4.14,7.15-8.93,5.43-2.27-1.06-2.73-1.14-2.42-1.56,6.45-9,6.49-9.64,8.82-9.99l-.04-.02c7.9-1.23,8.25-1.5,9.9-.9,6.25,2.35,7.5,3.41,11.04,2.09,3.94,7.04,6.45,11.62,8.07,14.56-.57.55-1.45,1.5-2.79,2.9ZM72.76,49.88l-12.6-22.53,7.3-4.36v-.02l12.61,22.55-7.3,4.36Z"/>
+</svg>`,
+          heading: 'PROFESSIONALISM',
+          message:
+            'Promote higher standards through education and awards programs.',
+        },
+        {
+          icon: `<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 90 90">
+  <path d="M87.08,66.15c-2.71-7.39-9.06-12.77-16.56-14.43,3.47-1.78,5.86-5.39,5.86-9.55,0-5.92-4.82-10.73-10.73-10.73s-10.73,4.81-10.73,10.73c0,.7.07,1.39.2,2.05-1.63-.81-3.38-1.43-5.2-1.82,3.46-1.78,5.83-5.39,5.83-9.54,0-5.92-4.81-10.73-10.73-10.73s-10.73,4.81-10.73,10.73c0,4.15,2.37,7.76,5.83,9.54-1.79.39-3.5.99-5.11,1.78.06-.48.11-.96.11-1.45,0-5.92-4.81-10.73-10.73-10.73s-10.73,4.81-10.73,10.73c0,4.16,2.38,7.76,5.85,9.55-7.5,1.65-13.85,7.04-16.56,14.43-.03.09-.05.22-.05.32,0,.47.39.85.86.85.38,0,.71-.26.82-.6,3.03-8.24,10.95-13.78,19.72-13.81.03,0,.06,0,.09,0,.03,0,.05,0,.08,0,8.8.04,16.72,5.59,19.74,13.84.16.45.65.68,1.1.51.44-.16.66-.64.51-1.09,0,0,0-.01,0-.02,3.03-8.24,10.95-13.78,19.72-13.81.03,0,.06,0,.09,0,.03,0,.05,0,.08,0,8.8.04,16.72,5.59,19.75,13.84.17.45.66.67,1.1.51.44-.16.67-.66.51-1.1ZM65.63,33.16c4.97,0,9.01,4.04,9.01,9.01s-3.99,8.96-8.92,9.01c-.04,0-.07,0-.1,0-.03,0-.06,0-.09,0-4.92-.06-8.91-4.07-8.91-9.01s4.04-9.01,9.01-9.01ZM35.99,32.86c0-4.97,4.04-9.01,9.01-9.01s9.01,4.04,9.01,9.01-3.91,8.87-8.76,9h-.5s0,0,0,0c-4.85-.13-8.76-4.11-8.76-9ZM15.35,42.73c0-4.97,4.04-9.01,9.01-9.01s9.01,4.04,9.01,9.01-3.99,8.96-8.92,9.01c-.04,0-.07,0-.1,0-.03,0-.06,0-.09,0-4.92-.06-8.91-4.07-8.91-9.01ZM44.86,64.53c-3.07-6.26-8.87-10.76-15.62-12.25,2.38-1.22,4.25-3.31,5.18-5.85.21-.13.43-.26.65-.37,2.85-1.55,6.12-2.4,9.48-2.48.05,0,.1.02.15,0,.05.02.1,0,.14,0,.05,0,.1,0,.15,0,.06,0,.11,0,.17,0,.04,0,.07.01.11,0,.05.01.1,0,.15,0,3.36.08,6.64.93,9.49,2.46.33.18.64.36.95.55,1,2.21,2.73,4.02,4.88,5.12-6.94,1.53-12.9,6.25-15.89,12.81Z"/>
+</svg>`,
+          heading: 'COMMUNITY',
+          message:
+            'Provide networking opportunities for members to meet, share and learn.',
+        },
+      ]}
+    >
+      <TextField label="iSVG Icon" name="icon" default="" required />
+      <TextField label="Heading" name="heading" default="" required />
+      <TextField label="Message" name="message" default="" required />
+    </RepeatedFieldGroup>
+  </ModuleFields>
+);
+
+export const meta: ModuleMeta = {
+  label: 'Home Hero',
+  content_types: ['SITE_PAGE', 'LANDING_PAGE'],
+  icon: '',
+  categories: [],
+};
+
+/* export const hublDataTemplate = `
+ {% macro videoHtml() %}
+  {% video_player embed_player type='scriptV4' player_id="{{module.video.player_id}}" autoplay="true" %}
+{% endmacro %}
+ {% set videoMetadata = video_metadata_by_player_id ({"id", module.video.player_id}) %}
+  {% set videoFile = file_by_id(videoMetadata.fileId) %}
+
+{% set hublData = {
+"videoHtml": videoHtml(),
+"metaData": videoMetadata,
+"videoFile": videoFile
+} %}
+
+ 
+
+`; */

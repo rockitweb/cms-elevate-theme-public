@@ -26,10 +26,13 @@ const textFeatureSet = [
   'nonbreaking_space',
   'source_code',
   'visual_blocks',
+  'colors'
 ] as RichTextFieldType['enabledFeatures'];
 
 const extendedFeatureSet = [
   'block',
+  'colors',
+  'font_size',
   'alignment',
   'indents',
   'lists',

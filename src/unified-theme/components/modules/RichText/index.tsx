@@ -26,8 +26,8 @@ function generateColorCssVars(
   ); */
 
   try {
-    console.log("AA");
-    console.log("FUCK IT", sectionColorsMap[sectionVariantField].textColor);
+   // console.log("AA");
+   // console.log("FUCK IT", sectionColorsMap[sectionVariantField].textColor);
   } catch (error) {
     console.log(
       "Error accessing sectionColorsMap for sectionVariantField:",
@@ -63,7 +63,7 @@ function generateColorCssVars(
 }
 
 export const Component = (props: RichTextProps) => {
-  console.log("RichText props:", props);
+  //console.log("RichText props:", props);
 
   const {
     groupStyle: { sectionStyleVariant },
